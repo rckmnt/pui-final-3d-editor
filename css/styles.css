@@ -1,0 +1,43 @@
+
+
+/*Header Footer*/
+
+
+header {
+	background-color: gray;
+	height: 100px;
+}
+
+footer {
+	background-color: salmon;
+	margin: auto;
+	height: 100px;
+}
+
+
+/*App Layout*/
+
+#left_bar{
+	width: 30%;
+	background-color: blue;
+	color: red;
+	margin: auto;
+	border: 1px solid powderblue;
+	display: inline-block;
+}
+
+#viewer{
+	width: 70%;
+	background-color: green;
+	color: red;
+	margin: auto;
+	float: right;
+	border: 1px solid powderblue;
+	display: inline-block;
+}
+
+#editor{
+	display: inline-block;
+}
+
+
