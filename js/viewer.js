@@ -1,3 +1,6 @@
+// This is the assembled Scene put into the Canvas element
+
+
 
 function initGL(canvas) {
     try {

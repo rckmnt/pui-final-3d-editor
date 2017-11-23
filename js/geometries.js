@@ -1,3 +1,5 @@
+// Basic 3D dimensions and properties of each
+
 var baseHeight, radius, leftArm, rightArm, length, angle;
 
 const small = {
