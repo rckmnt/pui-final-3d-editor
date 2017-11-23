@@ -29,7 +29,7 @@ function createSplytUnit(size) {
   const materials = [
     new THREE.MeshLambertMaterial({
       color: 0xfff9dc,
-      shading: THREE.SmoothShading
+      flatShading: true
     })
   ]
 

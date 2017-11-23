@@ -18,7 +18,8 @@
 
 	// Scene
 	var scene = new THREE.Scene();
-	var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+	var camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 0.1, 10000 );
+
 
 	/* Lights */
 
@@ -47,12 +48,16 @@
 	var geometry = new THREE.BoxGeometry( 1, 3, 1 );
 	var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, wireframe: false } );
 	var cube = new THREE.Mesh( geometry, material );
-	scene.add( cube );
+	scene.add( createSplytUnit(small) );
 	scene.add( plane );
 	scene.add( axisHelper );
 	cube.rotation.y += 0.2;
 	cube.rotation.x += 1.2;
-	camera.position.z = 5;
+
+	camera.position.y = 250;
+	camera.position.z = 500;
+	camera.lookAt( createSplytUnit(small).position );
+
 	renderer.render(scene, camera);
 
 	// DOM stuff

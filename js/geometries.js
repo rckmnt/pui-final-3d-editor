@@ -1,4 +1,6 @@
-export const small = {
+var baseHeight, radius, leftArm, rightArm, length, angle;
+
+const small = {
   baseHeight: 30,
   radius: 9.25,
   leftArm: {
@@ -11,7 +13,7 @@ export const small = {
   }
 }
 
-export const large = {
+const large = {
   baseHeight: 70,
   radius: 9.25,
   leftArm: {
