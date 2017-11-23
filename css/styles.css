@@ -19,44 +19,38 @@ header {
 }
 
 footer {
-	background-color: salmon;
 	margin: auto;
 	height: 100px;
-	position: absolute;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: #efefef;
+	background-color: #dddddd;
 	text-align: center;
+	position: fixed;
 }
 
 
 /*App Layout*/
+#content{
+
+}
 
 #left_bar{
 	width: 30%;
-	height: 100%;
-	min-height:100%;
-	background-color: blue;
-	color: red;
+	height: calc(100% - 200px);
+	background-color: #efefef;
 	display: inline-flex;
 }
 
-#viewer{
+#editor{
 	width: 70%;
-	height: 100%;
-	min-height:100%;
-	background-color: green;
-	color: red;
+	height: calc(100% - 200px);
+	background-color: white;
 	margin: auto;
 	float: right;
 	display: inline-flex;
 }
 
-#editor{
-	display: flex;
-	flex-flow: column;
-	/*display: inline-block;*/
-}
+
 
 
