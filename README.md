@@ -1,7 +1,9 @@
 PUI Final - A 3D Product Web Editor
 ========
 
-This project explores how WebGL and Three.js can be used to make a 3D product editor. 
+This project explores how WebGL and Three.js can be used to make a 3D product editor.
+
+## Splyt Light
 
 ## Splyt Light
 
