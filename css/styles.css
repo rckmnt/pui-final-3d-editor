@@ -42,7 +42,7 @@ footer {
 	display: inline-flex;
 }
 
-#editor{
+#canvas{
 	width: 70%;
 	height: calc(100% - 200px);
 	background-color: white;
