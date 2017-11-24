@@ -1,6 +1,6 @@
 // This is the assembled Scene put into the Canvas element
 
-
+/* Check if WebGL */
 
 function initGL(canvas) {
     try {
@@ -19,22 +19,18 @@ function initGL(canvas) {
 
   const axisHelper = new THREE.AxesHelper(50);
 
-  const planeGeometry = new THREE.CircleGeometry(50, 40);
-  const planeMaterial = new THREE.MeshLambertMaterial({
+  const baseGeometry = new THREE.CircleGeometry(50, 40);
+  const baseMaterial = new THREE.MeshLambertMaterial({
     color: 0x00ffff,
     transparent: true,
     opacity: 0.5,
     side: THREE.DoubleSide
   });
-
-  const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-  plane.receiveShadow = true;
-  plane.rotation.x = -Math.PI / 2;
-  plane.position.set(0, 0, 0);
+  const base = new THREE.Mesh( baseGeometry, baseMaterial );
 
 /* Scene */
   var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 0.1, 10000 );
+  var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 1, 10000 );
 
 /* Lights */
 
@@ -57,24 +53,30 @@ function initGL(canvas) {
   // Renderer
   var renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setClearColor(0xffffff, 1);
+  renderer.shadowMap.enabled = true
   renderer.setSize( window.innerWidth/2, window.innerHeight/2);
 
   // Assemble scene
-  var geometry = new THREE.BoxGeometry( 1, 3, 1 );
   var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, wireframe: false } );
-  var cube = new THREE.Mesh( geometry, material );
   var oneSplyt = createSplytUnit(small);
   scene.add( oneSplyt );
-  scene.add( plane );
+  scene.add( base );
   scene.add( axisHelper );
-  cube.rotation.y += 0.2;
-  cube.rotation.x += 1.2;
 
   camera.position.y = 150;
   camera.position.z = 300;
-  camera.lookAt( createSplytUnit(small).position );
+  camera.lookAt( oneSplyt.position );
 
   renderer.render(scene, camera);
+
+  // Camera
+  var controls = new THREE.OrbitControls( camera, renderer.domElement );
+  controls.addEventListener( 'change', render ); // remove when using animation loop
+  // enable animation loop when using damping or autorotation
+  //controls.enableDamping = true;
+  //controls.dampingFactor = 0.25;
+  controls.enableZoom = false;
+
 
   // DOM stuff
   var container = document.getElementById( 'canvas' );
@@ -90,8 +92,16 @@ function render() {
 
 (function animate() {
     requestAnimationFrame( animate );
+    controls.update();
     render();
 })();
+
+
+// function onWindowResize() {
+//   camera.aspect = window.innerWidth / window.innerHeight;
+//   camera.updateProjectionMatrix();
+//   renderer.setSize( window.innerWidth, window.innerHeight );
+// }
 
 
 

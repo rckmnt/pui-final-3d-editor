@@ -6,6 +6,7 @@ html, body{
 	height: 100%;
 	padding: 0;
 	margin: 0 auto;
+	font-family: 'Merriweather', serif;
 }
 
 
@@ -29,14 +30,19 @@ footer {
 	text-align: center;
 	position: fixed;
 }
-
+div {
+	display: block;
+}
+a {
+	color: gray;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
 
 /*App Layout*/
 #content{
-}
-
-div {
-	display: block;
 }
 
 #left_bar{
@@ -65,10 +71,12 @@ div {
 .left_bar p{
 	text-align: center;
 	margin: 0 auto;
+	width:100%;
 }
 
 #small_drag{
 	background-color: lightblue;
+	float:left;
 	width: 200px;
 	height: 200px;
 	display: block;
@@ -76,6 +84,7 @@ div {
 
 #large_drag{
 	background-color: salmon;
+	float:left;
 	width: 200px;
 	height: 200px;
 	display: block;
