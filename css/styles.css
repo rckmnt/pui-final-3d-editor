@@ -33,7 +33,10 @@ footer {
 
 /*App Layout*/
 #content{
+}
 
+div {
+	display: block;
 }
 
 #left_bar{
@@ -49,14 +52,14 @@ footer {
 	background-color: white;
 	margin: auto;
 	float: right;
-	display: inline-flex;
+	/*display: inline-flex;*/
 }
 
 /*Left Bar Drag Items*/
 
 .left_bar{
 	text-align: center;
-	display: flex;
+	/*display: flex;*/
 	margin: auto;
 }
 .left_bar p{
@@ -68,26 +71,32 @@ footer {
 	background-color: lightblue;
 	width: 200px;
 	height: 200px;
+	display: block;
 }
 
 #large_drag{
 	background-color: salmon;
 	width: 200px;
 	height: 200px;
+	display: block;
 }
 
 
 /*Viewer Canvas*/
 canvas{
 	margin: auto;
+	width:100%;
+	height:100%;
+	/*z-index:-1;*/
 }
+
 .canvas p{
 	margin: 0 auto;
 	text-align: center;
 }
 
 .canvas{
-	display: block;
+	/*display: block;*/
 }
 
 
