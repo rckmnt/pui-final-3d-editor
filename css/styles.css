@@ -8,6 +8,7 @@ html, body{
 	margin: 0 auto;
 }
 
+
 header {
 	background-color: rgb(74, 118, 178);
 	height: 100px;
@@ -51,6 +52,43 @@ footer {
 	display: inline-flex;
 }
 
+/*Left Bar Drag Items*/
+
+.left_bar{
+	text-align: center;
+	display: flex;
+	margin: auto;
+}
+.left_bar p{
+	text-align: center;
+	margin: 0 auto;
+}
+
+#small_drag{
+	background-color: lightblue;
+	width: 200px;
+	height: 200px;
+}
+
+#large_drag{
+	background-color: salmon;
+	width: 200px;
+	height: 200px;
+}
+
+
+/*Viewer Canvas*/
+canvas{
+	margin: auto;
+}
+.canvas p{
+	margin: 0 auto;
+	text-align: center;
+}
+
+.canvas{
+	display: block;
+}
 
 
 

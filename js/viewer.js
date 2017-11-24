@@ -70,8 +70,8 @@ function initGL(canvas) {
   cube.rotation.y += 0.2;
   cube.rotation.x += 1.2;
 
-  camera.position.y = 250;
-  camera.position.z = 500;
+  camera.position.y = 150;
+  camera.position.z = 300;
   camera.lookAt( createSplytUnit(small).position );
 
   renderer.render(scene, camera);

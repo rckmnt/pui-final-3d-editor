@@ -2,8 +2,11 @@
 <html>
 <head>
 	<title>Splyt Light - 3D Viewer</title>
-	<script src="js/three.min.js"></script>
-	<script src="js/viewer.js"></script>
+	<script type="text/javascript" src="js/three.min.js"></script>
+	<script type="text/javascript"  src="js/globals.js"></script>
+	<script type="text/javascript"  src="js/geometries.js"></script>
+	<script type="text/javascript"  src="js/unit.js"></script>
+
 	<link rel="stylesheet" href="css/styles.css"></link>
 </head>
 <body>
@@ -13,19 +16,34 @@
 	<p>Header here, dark gray and such</p>
 </header>
 <div id="content"></div>
-	<div id="left_bar">
-		<p>this is left</p>
-		<br>
-		<br>
-		<br>
-	</div>
-	<div id="editor">
-		<p>this is editor</p>
-		<canvas id="webgl" style="padding:0;" width="600px" height="600px"></canvas>
-	</div>
+
+		<div class="left_bar" id="left_bar">
+
+			<p>Drag Y onto Light to make your own Splyt light.</p>
+			<div class="left_bar" id="small_drag">
+				<p>Small Y</p>
+			</div>
+			<div class="left_bar" id="large_drag">
+				<p>Large Y</p>
+			</div>
+		</div>
+
+		<div class="canvas" id="canvas">
+			<p class="canvas">this is the canvas</p>
+
+		</div>
+
+
+ </div>
+<!-- </div> -->
 <footer>
-	<p>Footer here, also dark gray</p>
+	<p>Splyt, 63 Flushing Avenue, Brooklyn, NY, 11205</p>
+	<p>hello@splytlight.com</p>
 </footer>
 
 </body>
+
+<!-- Convert to OnLoad function -->
+<script type="text/javascript"  src="js/viewer.js"></script>
+
 </html>
