@@ -18,7 +18,6 @@ function initGL(canvas) {
 /* Environment */
 
   const axisHelper = new THREE.AxesHelper(50);
-
   const baseGeometry = new THREE.CircleGeometry(50, 40);
   const baseMaterial = new THREE.MeshLambertMaterial({
     color: 0x00ffff,
@@ -54,7 +53,7 @@ function initGL(canvas) {
   var renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setClearColor(0xffffff, 1);
   renderer.shadowMap.enabled = true
-  renderer.setSize( window.innerWidth/2, window.innerHeight/2);
+  renderer.setSize( window.innerWidth * .75, window.innerHeight * .75);
 
   // Assemble scene
   var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, wireframe: false } );
@@ -102,57 +101,4 @@ function render() {
 //   camera.aspect = window.innerWidth / window.innerHeight;
 //   camera.updateProjectionMatrix();
 //   renderer.setSize( window.innerWidth, window.innerHeight );
-// }
-
-
-
-// import {
-//   CylinderGeometry,
-//   Geometry,
-//   SceneUtils,
-//   SmoothShading,
-//   MeshLambertMaterial
-// } from "three"
-
-// const { sin, cos } = Math
-
-// function createCylinder(length, radius) {
-//   return new CylinderGeometry(radius, radius, length, 24, 8, false)
-// }
-
-// function createArm({ length, angle }, baseHeight, radius) {
-//   const obj = createCylinder(length, radius)
-//   obj.rotateZ(angle)
-//   obj.translate(
-//     -length * sin(angle) / 2,
-//     baseHeight + length * cos(angle) / 2,
-//     0
-//   )
-//   return obj
-// }
-
-// const o = 1
-
-// export default function createSplytUnit(size) {
-//   const { baseHeight, radius, leftArm, rightArm } = size
-
-//   const baseObj = createCylinder(baseHeight - o, radius)
-//   baseObj.translate(0, baseHeight / 2 + o, 0)
-
-//   const leftArmObj = createArm(leftArm, baseHeight, radius)
-//   const rightArmObj = createArm(rightArm, baseHeight, radius)
-
-//   const materials = [
-//     new MeshLambertMaterial({
-//       color: 0xfff9dc,
-//       shading: SmoothShading
-//     })
-//   ]
-
-//   const smallYGeo = new Geometry()
-//   ;[baseObj, leftArmObj, rightArmObj].forEach(o => smallYGeo.merge(o, o.matrix))
-
-//   const smallYMesh = SceneUtils.createMultiMaterialObject(smallYGeo, materials)
-
-//   return smallYMesh
 // }
