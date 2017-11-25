@@ -65,6 +65,7 @@ function initGL(canvas) {
 
   camera.position.y = 150;
   camera.position.z = 300;
+  camera.up = new THREE.Vector3(0, 1, 0);
   camera.lookAt( oneSplyt.position );
 
   renderer.render(scene, camera);

@@ -5,8 +5,10 @@
 html, body{
 	height: 100%;
 	padding: 0;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	font-family: 'Merriweather', serif;
+	position: relative;
+	box-sizing: inherit;
 }
 
 
@@ -18,17 +20,19 @@ header {
 	top: 0px;
 	left: 0px;
 	padding: 0px 20px;
+	box-sizing:border-box;
 }
 
 footer {
 	margin: auto;
+	width: 100%;
 	height: 100px;
-	right: 0;
 	bottom: 0;
-	left: 0;
 	background-color: #dddddd;
 	text-align: center;
-	position: fixed;
+	position: relative;
+	clear: both;
+	/*margin-bottom: 300px;*/
 }
 div {
 	display: block;
@@ -40,24 +44,36 @@ a {
 a:hover{
 	text-decoration: underline;
 }
+h1{
+	margin: 0;
+}
 
 /*App Layout*/
 #content{
+	/*display: block;*/
+	/*padding-bottom:60px;*/
+	/*position: relative;*/
 }
 
 #left_bar{
-	width: 30%;
-	height: calc(100% - 200px);
+	width: 25%;
+	height: calc(100% + 100px);
 	background-color: #efefef;
-	display: inline-flex;
+	display: block;
+	float:left;
+	position: relative;
 }
 
 #canvas{
 	width: 70%;
-	height: calc(100% - 200px);
+	height: calc(100% + 100px);
 	background-color: white;
 	margin: auto;
 	float: right;
+	position: relative;
+	border: 2px;
+	border-color: black;
+	display: block;
 	/*display: inline-flex;*/
 }
 
@@ -65,29 +81,29 @@ a:hover{
 
 .left_bar{
 	text-align: center;
-	/*display: flex;*/
-	margin: auto;
+	display: block;
+	border: 1px;
+	border-color: gray;
 }
 .left_bar p{
 	text-align: center;
 	margin: 0 auto;
-	width:100%;
+}
+.drag_box{
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 10px 0;
+	width: 200px;
+	height: 200px;
+	border-radius: 10px;
 }
 
 #small_drag{
 	background-color: lightblue;
-	float:left;
-	width: 200px;
-	height: 200px;
-	display: block;
 }
 
 #large_drag{
 	background-color: salmon;
-	float:left;
-	width: 200px;
-	height: 200px;
-	display: block;
 }
 
 
@@ -96,6 +112,8 @@ canvas{
 	margin: auto;
 	width:100%;
 	height:100%;
+	position: relative;
+	/*display: block;*/
 	/*z-index:-1;*/
 }
 
