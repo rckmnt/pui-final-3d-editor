@@ -13,3 +13,8 @@ const controlCircleOffset = 10
 
 const headerHeight = 60
 const standardPadding = 20
+
+function log(val) {
+  console.log(val)
+  return val
+}

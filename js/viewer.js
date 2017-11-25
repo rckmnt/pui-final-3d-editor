@@ -78,6 +78,7 @@ function initGL(canvas) {
   controls.enableZoom = false;
 
 
+
   // DOM stuff
   var container = document.getElementById( 'canvas' );
   container.appendChild( renderer.domElement );
@@ -85,16 +86,17 @@ function initGL(canvas) {
 
 
 function render() {
-    oneSplyt.rotation.y += 0.01;
-    oneSplyt.rotation.x += 0.02;
+    // oneSplyt.rotation.y += 0.01;
+    // oneSplyt.rotation.x += 0.02;
     renderer.render( scene, camera );
   }
 
 (function animate() {
-    requestAnimationFrame( animate );
-    controls.update();
+    // requestAnimationFrame( animate );
+    // controls.update();
     render();
-})();
+})
+();
 
 
 // function onWindowResize() {
