@@ -84,6 +84,18 @@ function initGL(canvas) {
   container.appendChild( renderer.domElement );
   document.body.appendChild( container );
 
+  // Update
+  function resize({ width, height }, { x, y }, cameraAngle) {
+    renderer.setSize(width, height)
+    camera.aspect = width / height
+    camera.position.set(
+      (x + y) * 1.2 * Math.sin(cameraAngle),
+      (x + y) * 0.8,
+      (x + y) * 1.2 * Math.cos(cameraAngle)
+    )
+    camera.lookAt(new Vector3(0, (x + y) * 0.45), 0)
+    camera.updateProjectionMatrix()
+  }
 
 function render() {
     // oneSplyt.rotation.y += 0.01;

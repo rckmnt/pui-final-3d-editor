@@ -12,7 +12,7 @@ This is the start to a parametric WebGL UI for creating Splyt Lights. Splyt ligh
 
 [Splyt UI Demo Here](http://scottleinweber.com/splyt/)
 
-Check out the Splyt Light project at [splytlight.com](http://www.splytlight.com/)  
+Check out the Splyt Light project at [splytlight.com](http://www.splytlight.com/)
 
 ## Splyt Light
 
@@ -26,4 +26,11 @@ This has been an idea of Splyt since the beginning, and was finally pushed to st
 
 ### Credits
 
-Thanks to [Peter](https://github.com/pickled-plugins) for the kick in the pants. 
+Thanks to PUI class and [Peter](https://github.com/pickled-plugins) for the kick in the pants.
+
+## TODO
+
+- Generate entireTree from JSON object
+- on hover add another piece, ghosted
+- Save JSON object to localStorage
+
