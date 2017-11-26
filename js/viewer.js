@@ -55,28 +55,26 @@ function initGL(canvas) {
   renderer.shadowMap.enabled = true
   renderer.setSize( window.innerWidth * .75, window.innerHeight * .75);
 
+
   // Assemble scene
   var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, wireframe: false } );
   var oneSplyt = createSplytUnit(small);
-  scene.add( oneSplyt );
+  var fullTree = createSplytTree(megaTree);
+  scene.add( fullTree );
   scene.add( base );
   scene.add( axisHelper );
 
   camera.position.y = 150;
   camera.position.z = 300;
   camera.up = new THREE.Vector3(0, 1, 0);
-  camera.lookAt( oneSplyt.position );
+  camera.lookAt( fullTree.position );
 
   renderer.render(scene, camera);
 
   // Camera
   var controls = new THREE.OrbitControls( camera, renderer.domElement );
-  controls.addEventListener( 'change', render ); // remove when using animation loop
-  // enable animation loop when using damping or autorotation
-  //controls.enableDamping = true;
-  //controls.dampingFactor = 0.25;
+  controls.addEventListener( 'change', render );
   controls.enableZoom = false;
-
 
 
   // DOM stuff

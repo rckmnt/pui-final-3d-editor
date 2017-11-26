@@ -1,6 +1,6 @@
 // Creates one Splyt Y piece
 
-
+// import * as splyt from "./geometries.js"
 const { sin, cos } = Math
 
 function createCylinder(length, radius) {
@@ -55,23 +55,26 @@ function transformSplyt(object, dimensions, direction, rotation) {
 // Recursively go through each Splyt Unit in the Tree to build
 
 function createSplytTree(state) {
+  // if this Splyt is the end of the tree
   if (!state || state.status === "adding") {
-    const emptyGroup = new Group()
-    const sphereGeometry = new SphereGeometry(12, 16, 16)
-    const sphereMaterial = new MeshBasicMaterial({ color: 0xffc235 })
-    const sphereMesh = new Mesh(sphereGeometry, sphereMaterial)
+    const emptyGroup = new THREE.Group()
+    const sphereGeometry = new THREE.SphereGeometry(12, 16, 16)
+    const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xffc235 })
+    const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial)
     sphereMesh.translateY(13)
     emptyGroup.add(sphereMesh)
     return emptyGroup
-  } else {
+  }
+  // if not at the end of the tree...
+  else {
     const leftGroup = createSplytTree(state.left)
-    transformSplyt(leftGroup, splyt[state.size], "left", state.rotation)
+    transformSplyt(leftGroup, state.size, "left", state.rotation)   // previously splyt[state.size]
     const rightGroup = createSplytTree(state.right)
-    transformSplyt(rightGroup, splyt[state.size], "right", state.rotation)
-    const group = new Group()
+    transformSplyt(rightGroup, state.size, "right", state.rotation)
+    const group = new THREE.Group()
     group.add(leftGroup)
     group.add(rightGroup)
-    group.add(createSplytUnit(splyt[state.size]))
+    group.add(createSplytUnit(state.size))
     return group
   }
 }

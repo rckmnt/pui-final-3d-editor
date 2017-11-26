@@ -18,6 +18,9 @@ const initialState = {
   }
 }
 
+var megaTree = {"size":"small","status":"added","rotation":0,"left":{"status":"added","rotation":2.518526334837162,"size":"small","right":{"status":"added","rotation":0.76686996353668,"size":"small","left":{"status":"added","rotation":2.4784066776397276,"size":"large","right":{"status":"added","rotation":1.1367891624142814,"size":"small","left":{"status":"added","rotation":3.9340512625549056,"size":"small"}},"left":null},"right":null},"left":{"status":"added","rotation":4.4262601724255255,"size":"small","left":{"status":"added","rotation":3.4121004507546933,"size":"small","right":{"status":"added","rotation":1.4794632055591657,"size":"small","right":{"status":"added","rotation":2.3058228307674455,"size":"small","right":{"status":"added","rotation":2.6886019831511048,"size":"small"},"left":{"status":"added","rotation":6.06601055295845,"size":"small","left":null}},"left":null},"left":{"status":"added","rotation":0.29748984760492503,"size":"small","right":null}},"right":null}},"right":{"status":"added","rotation":4.302611734316891,"size":"small","left":{"status":"added","rotation":4.442169348981059,"size":"small","left":{"status":"added","rotation":6.280214124772243,"size":"small","left":null},"right":{"status":"added","rotation":4.2197540044806034,"size":"small","right":{"status":"added","rotation":3.856991851850945,"size":"small"},"left":{"status":"added","rotation":5.741265811111512,"size":"small"}}},"right":{"status":"added","rotation":1.000677082764315,"size":"large","left":null,"right":null}}};
+
+
 // Toggle Which Y Type to Add
 
 var currentY = "small";
