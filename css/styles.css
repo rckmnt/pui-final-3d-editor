@@ -5,7 +5,7 @@
 html, body{
 	height: 100%;
 	margin: 0 auto;
-	font-family: 'Merriweather', serif;
+	font-family: 'Open Sans', serif;
 	position: relative;
 	box-sizing: inherit;
 	font-size: 1em;
@@ -54,7 +54,6 @@ p{
 
 h1, h2, h3, h4 {
   margin: 1.414em 0 0.5em;
-  font-weight: inherit;
   line-height: 1.2;
 }
 
@@ -124,10 +123,13 @@ small, .font_small {font-size: 0.833em;}
 
 #small_drag{
 	background-color: lightblue;
+	border-style: solid;
+	border-color: black;
 }
 
 #large_drag{
 	background-color: salmon;
+	border-style: hidden;
 }
 
 

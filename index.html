@@ -6,8 +6,11 @@
 	<script type="text/javascript"  src="js/globals.js"></script>
 	<script type="text/javascript"  src="js/geometries.js"></script>
 	<script type="text/javascript"  src="js/unit.js"></script>
+	<script type="text/javascript"  src="js/state.js"></script>
 	<script type="text/javascript"  src="js/OrbitControls.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles.css"></link>
 </head>
 <body>
@@ -19,11 +22,11 @@
 
 	<div id="content"></div>
 		<div class="left_bar" id="left_bar">
-			<p>Drag Y onto Light to make your own Splyt light.</p>
-			<div class="drag_box" id="small_drag">
+			<p>Select which Y piece to add:</p>
+			<div class="drag_box" id="small_drag" onclick="toggleYPiece(this)">
 				<h4>Small Y</h4>
 			</div>
-			<div class="drag_box" id="large_drag">
+			<div class="drag_box" id="large_drag" onclick="toggleYPiece(this)">
 				<h4>Large Y</h4>
 			</div>
 		</div>
@@ -39,5 +42,6 @@
 	<p>Splyt, 63 Flushing Avenue, Brooklyn, NY, 11205</p>
 	<a href="hello@splytlight.com">hello@splytlight.com<a>
 </footer>
+
 </body>
 </html>
