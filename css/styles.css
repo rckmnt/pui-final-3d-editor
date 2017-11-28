@@ -120,15 +120,21 @@ small, .font_small {font-size: 0.833em;}
 	border-radius: 10px;
 	font-size: 1em;
 }
+.drag_box img{
+	margin: 0 auto;
+	width: 50%;
+	height: 50%;
+	border-radius: 4px;
+}
 
 #small_drag{
-	background-color: lightblue;
+	background-color: rgba(99, 143, 190, 0.2);	/*blue  #4A76B2*/
 	border-style: solid;
 	border-color: black;
 }
 
 #large_drag{
-	background-color: salmon;
+	background-color: white;
 	border-style: hidden;
 }
 
@@ -143,12 +149,12 @@ canvas{
 	/*z-index:-1;*/
 }
 
-.canvas p{
+.app p{
 	margin: 0 auto;
 	text-align: center;
 }
 
-.canvas{
+.app{
 	/*display: block;*/
 }
 

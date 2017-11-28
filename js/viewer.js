@@ -57,7 +57,7 @@ function initGL(canvas) {
 
 
 // Assemble scene
-  var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, wireframe: false } );
+  // var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, wireframe: false } );
   var oneSplyt = createSplytUnit(small);
   // var fullTree = createSplytTree(megaTree);
   scene.add( oneSplyt );
@@ -110,8 +110,8 @@ document.addEventListener('mousemove', onDocumentMouseMove, false);
 
 function onDocumentMouseMove(event) {
   // update the mouse variable
-  mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-  mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+  mouse.x = ( event.clientX / container.width * 2 - 1);
+  mouse.y = - ( event.clientY / container.height * 2 + 1);
 }
 
 
@@ -166,8 +166,6 @@ function update() {
 ();
 
 function render() {
-    // oneSplyt.rotation.y += 0.01;
-    // oneSplyt.rotation.x += 0.02;
     renderer.render( scene, camera );
   }
 
