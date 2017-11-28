@@ -49,40 +49,41 @@ function initGL(canvas) {
     scene.add(light)
   })
 
-  // Renderer
+// Renderer
   var renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setClearColor(0xffffff, 1);
   renderer.shadowMap.enabled = true
   renderer.setSize( window.innerWidth * .75, window.innerHeight * .75);
 
 
-  // Assemble scene
+// Assemble scene
   var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, wireframe: false } );
   var oneSplyt = createSplytUnit(small);
-  var fullTree = createSplytTree(megaTree);
-  scene.add( fullTree );
+  // var fullTree = createSplytTree(megaTree);
+  scene.add( oneSplyt );
+  // scene.add( fullTree );
   scene.add( base );
   scene.add( axisHelper );
 
   camera.position.y = 150;
   camera.position.z = 300;
   camera.up = new THREE.Vector3(0, 1, 0);
-  camera.lookAt( fullTree.position );
+  camera.lookAt( oneSplyt.position );
 
   renderer.render(scene, camera);
 
-  // Camera
+// Camera
   var controls = new THREE.OrbitControls( camera, renderer.domElement );
   controls.addEventListener( 'change', render );
   controls.enableZoom = false;
 
 
-  // DOM stuff
+// DOM stuff
   var container = document.getElementById( 'canvas' );
   container.appendChild( renderer.domElement );
   document.body.appendChild( container );
 
-  // Update
+// Update
   function resize({ width, height }, { x, y }, cameraAngle) {
     renderer.setSize(width, height)
     camera.aspect = width / height
@@ -95,18 +96,80 @@ function initGL(canvas) {
     camera.updateProjectionMatrix()
   }
 
+
+// HOVER OVER
+
+// globals for Mouse Hover Over
+var INTERSECTED;
+
+// initialize object to perform world/screen calculations
+var mouse = new THREE.Vector2(); // create once
+
+// when the mouse moves, call the given function
+document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+function onDocumentMouseMove(event) {
+  // update the mouse variable
+  mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+  mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+}
+
+
+// update from https://jsfiddle.net/wilt/52ejur45/
+function update() {
+  // find intersections
+
+  // create a Ray with origin at the mouse position
+  //   and direction into the scene (camera direction)
+  var vector = new THREE.Vector3(mouse.x, mouse.y, 1);
+  vector.unproject(camera);
+  var ray = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+
+  // create an array containing all objects in the scene with which the ray intersects
+  var intersects = ray.intersectObjects(scene.children);
+
+  // INTERSECTED = the object in the scene currently closest to the camera
+  //    and intersected by the Ray projected from the mouse position
+
+  // if there is one (or more) intersections
+  if (intersects.length > 0) {
+    // if the closest object intersected is not the currently stored intersection object
+    if (intersects[0].object != INTERSECTED) {
+      // restore previous intersection object (if it exists) to its original color
+      if (INTERSECTED)
+        INTERSECTED.material.color.setHex(INTERSECTED.currentHex);
+      // store reference to closest object as current intersection object
+      INTERSECTED = intersects[0].object;
+      // store color of closest object (for later restoration)
+      INTERSECTED.currentHex = INTERSECTED.material.color.getHex();
+      // set a new color for closest object
+      INTERSECTED.material.color.setHex(0xffff00);
+    }
+  } else // there are no intersections
+  {
+    // restore previous intersection object (if it exists) to its original color
+    if (INTERSECTED)
+      INTERSECTED.material.color.setHex(INTERSECTED.currentHex);
+    // remove previous intersection object reference
+    //     by setting current intersection object to "nothing"
+    INTERSECTED = null;
+  }
+}
+
+
+(function animate() {
+    requestAnimationFrame( animate );
+    controls.update();
+    render();
+    update();
+})
+();
+
 function render() {
     // oneSplyt.rotation.y += 0.01;
     // oneSplyt.rotation.x += 0.02;
     renderer.render( scene, camera );
   }
-
-(function animate() {
-    // requestAnimationFrame( animate );
-    // controls.update();
-    render();
-})
-();
 
 
 // function onWindowResize() {
