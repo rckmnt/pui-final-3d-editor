@@ -2,23 +2,24 @@
 
 /* Check if WebGL */
 
-function initGL(canvas) {
-    try {
-        gl = canvas.getContext("webgl",{preserveDrawingBuffer: true});
-        gl.viewportWidth = canvas.width;
-        gl.viewportHeight = canvas.height;
-        console.log("Trying....");
-    } catch (e) {
-    }
-    if (!gl) {
-        alert("Could not initialise WebGL");
-    }
-}
+// function initGL(canvas) {
+//     try {
+//         gl = canvas.getContext("webgl",{preserveDrawingBuffer: true});
+//         gl.viewportWidth = canvas.width;
+//         gl.viewportHeight = canvas.height;
+//         console.log("Trying....");
+//     } catch (e) {
+//     }
+//     if (!gl) {
+//         alert("Could not initialise WebGL");
+//     }
+// }
+// onload="initGL();" goes in body tag
 
 /* Environment */
 
   const axisHelper = new THREE.AxesHelper(50);
-  const baseGeometry = new THREE.CircleGeometry(50, 40);
+  const baseGeometry = new THREE.CylinderGeometry(25, 25, 10, 16);
   const baseMaterial = new THREE.MeshLambertMaterial({
     color: 0x00ffff,
     transparent: true,
@@ -110,9 +111,10 @@ document.addEventListener('mousemove', onDocumentMouseMove, false);
 
 function onDocumentMouseMove(event) {
   // update the mouse variable
-  mouse.x = ( event.clientX / container.width * 2 - 1);
-  mouse.y = - ( event.clientY / container.height * 2 + 1);
+  mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+  mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 }
+
 
 
 // update from https://jsfiddle.net/wilt/52ejur45/
@@ -124,6 +126,7 @@ function update() {
   var vector = new THREE.Vector3(mouse.x, mouse.y, 1);
   vector.unproject(camera);
   var ray = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+  // ray.setFromCamera( mouse.clone(), camera );
 
   // create an array containing all objects in the scene with which the ray intersects
   var intersects = ray.intersectObjects(scene.children);
@@ -138,12 +141,12 @@ function update() {
       // restore previous intersection object (if it exists) to its original color
       if (INTERSECTED)
         INTERSECTED.material.color.setHex(INTERSECTED.currentHex);
-      // store reference to closest object as current intersection object
-      INTERSECTED = intersects[0].object;
-      // store color of closest object (for later restoration)
-      INTERSECTED.currentHex = INTERSECTED.material.color.getHex();
-      // set a new color for closest object
-      INTERSECTED.material.color.setHex(0xffff00);
+        // store reference to closest object as current intersection object
+        INTERSECTED = intersects[0].object;
+        // store color of closest object (for later restoration)
+        INTERSECTED.currentHex = INTERSECTED.material.color.getHex();
+        // set a new color for closest object
+        INTERSECTED.material.color.setHex(0xffff00);
     }
   } else // there are no intersections
   {
@@ -162,6 +165,8 @@ function update() {
     controls.update();
     render();
     update();
+    log(mouse.x);
+    log(mouse.y);
 })
 ();
 
