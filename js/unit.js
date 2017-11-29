@@ -48,8 +48,7 @@ function transformSplyt(object, dimensions, direction, rotation) {
   const { angle, length } = dimensions[direction + "Arm"]
   object.rotateZ(angle)
   object.rotateY(rotation)
-  object.position.set(-length * sin(ang
-    le), baseHeight + length * cos(angle), 0)
+  object.position.set(-length * sin(angle), baseHeight + length * cos(angle), 0)
 }
 
 // Recursively go through each Splyt Unit in the Tree to build
