@@ -85,97 +85,42 @@
   document.body.appendChild( container );
 
 // Update
-  function resize({ width, height }, { x, y }, cameraAngle) {
-    renderer.setSize(width, height)
-    camera.aspect = width / height
-    camera.position.set(
-      (x + y) * 1.2 * Math.sin(cameraAngle),
-      (x + y) * 0.8,
-      (x + y) * 1.2 * Math.cos(cameraAngle)
-    )
-    camera.lookAt(new Vector3(0, (x + y) * 0.45), 0)
-    camera.updateProjectionMatrix()
-  }
 
-
-// HOVER OVER
-
-// globals for Mouse Hover Over
-var INTERSECTED;
-
-// initialize object to perform world/screen calculations
-var mouse = new THREE.Vector2(); // create once
 
 // when the mouse moves, call the given function
-document.addEventListener('mousemove', onDocumentMouseMove, false);
+// document.addEventListener('mousemove', onDocumentMouseMove, false);
+window.addEventListener( 'resize', onWindowResize, false );
 
 
 // Browser Functions
+
+
 function onDocumentMouseMove(event) {
   // update the mouse variable
   mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
   mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 }
 
-function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize( window.innerWidth, window.innerHeight );
+function onWindowResize(){
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth * .75, window.innerHeight * .75);
+
 }
 
+// Three.js Rendering
 
-// update from https://jsfiddle.net/wilt/52ejur45/
 function update() {
   onWindowResize();
-
-  // find intersections
-
-  // create a Ray with origin at the mouse position
-  //   and direction into the scene (camera direction)
-  var vector = new THREE.Vector3(mouse.x, mouse.y, 1);
-  vector.unproject(camera);
-  var ray = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
-  // ray.setFromCamera( mouse.clone(), camera );
-
-  // create an array containing all objects in the scene with which the ray intersects
-  var intersects = ray.intersectObjects(scene.children);
-
-  // INTERSECTED = the object in the scene currently closest to the camera
-  //    and intersected by the Ray projected from the mouse position
-
-  // if there is one (or more) intersections
-  if (intersects.length > 0) {
-    // if the closest object intersected is not the currently stored intersection object
-    if (intersects[0].object != INTERSECTED) {
-      // restore previous intersection object (if it exists) to its original color
-      if (INTERSECTED)
-        INTERSECTED.material.color.setHex(INTERSECTED.currentHex);
-        // store reference to closest object as current intersection object
-        INTERSECTED = intersects[0].object;
-        // store color of closest object (for later restoration)
-        INTERSECTED.currentHex = INTERSECTED.material.color.getHex();
-        // set a new color for closest object
-        INTERSECTED.material.color.setHex(0xffff00);
-    }
-  } else // there are no intersections
-  {
-    // restore previous intersection object (if it exists) to its original color
-    if (INTERSECTED)
-      INTERSECTED.material.color.setHex(INTERSECTED.currentHex);
-    // remove previous intersection object reference
-    //     by setting current intersection object to "nothing"
-    INTERSECTED = null;
-  }
 }
 
 
 (function animate() {
     requestAnimationFrame( animate );
     controls.update();
-    render();
     update();
-    // log(mouse.x);
-    // log(mouse.y);
+    render();
+    // log(mouse.x, mouse.y);
 })
 ();
 
