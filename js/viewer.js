@@ -109,16 +109,25 @@ var mouse = new THREE.Vector2(); // create once
 // when the mouse moves, call the given function
 document.addEventListener('mousemove', onDocumentMouseMove, false);
 
+
+// Browser Functions
 function onDocumentMouseMove(event) {
   // update the mouse variable
   mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
   mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 }
 
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize( window.innerWidth, window.innerHeight );
+}
 
 
 // update from https://jsfiddle.net/wilt/52ejur45/
 function update() {
+  onWindowResize();
+
   // find intersections
 
   // create a Ray with origin at the mouse position
@@ -165,8 +174,8 @@ function update() {
     controls.update();
     render();
     update();
-    log(mouse.x);
-    log(mouse.y);
+    // log(mouse.x);
+    // log(mouse.y);
 })
 ();
 
@@ -175,8 +184,3 @@ function render() {
   }
 
 
-// function onWindowResize() {
-//   camera.aspect = window.innerWidth / window.innerHeight;
-//   camera.updateProjectionMatrix();
-//   renderer.setSize( window.innerWidth, window.innerHeight );
-// }
