@@ -28,7 +28,6 @@ var currentY = "small";
 function toggleYPiece(box) {
     if (box.id == "large_drag"){
         // Selected
-      // $("#large_drag").css("background-color", faintBlue);
       $("#large_drag").css("border-color", blue);
       $("#large_drag").css("border-style", "solid");
 
@@ -39,9 +38,8 @@ function toggleYPiece(box) {
       currentY = "large";
     return "large";
   } else if (box.id == "small_drag"){
-      // Selected
 
-      // $("#small_drag").css("background-color", faintBlue);
+      // Selected
       $("#small_drag").css("border-color", blue);
       $("#small_drag").css("border-style", "solid");
 

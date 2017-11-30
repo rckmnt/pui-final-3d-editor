@@ -43,7 +43,6 @@
 
 
 // Assemble scene
-  // var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, wireframe: false } );
   var oneSplyt = createSplytUnit(small);
   // var fullTree = createSplytTree(megaTree);
   scene.add( oneSplyt );
@@ -74,17 +73,14 @@
   }
 
 
-// Update
+// Update / Listeners
 
-// when the mouse moves, call the given function
-// document.addEventListener('mousemove', onDocumentMouseMove, false);
 window.addEventListener( 'resize', onWindowResize, false );
 
 
 // Browser Functions
 
 function onDocumentMouseMove(event) {
-  // update the mouse variable
   mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
   mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 }
@@ -114,7 +110,6 @@ function render() {
     controls.update();
     update();
     render();
-    // log(mouse.x, mouse.y);
 })
 
 

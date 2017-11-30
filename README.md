@@ -17,7 +17,6 @@ Check out the Splyt Light project at [splytlight.com](http://www.splytlight.com/
 ## Splyt Light
 
 * The product used for the demo is Splyt Light - splytlight.com
-* More info will come here...
 
 
 ### History
@@ -31,8 +30,6 @@ Thanks to PUI class and [Peter](https://github.com/pickled-plugins) for the kick
 ## TODO
 
 - Generate entireTree from JSON object
-- on hover add another piece, ghosted
-- Save JSON object to localStorage
 
 
 
