@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Splyt Light - 3D Viewer</title>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<script type="text/javascript"  src="js/three.min.js"></script>
 	<script type="text/javascript"  src="js/globals.js"></script>
 	<script type="text/javascript"  src="js/geometries.js"></script>
@@ -15,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles.css"></link>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body onresize="differentWidths()" onload="differentWidths()">
 
@@ -24,7 +26,7 @@
 	<p>Build your own Splyt light</p>
 </header>
 
-	<div id="content"></div>
+	<div id="content">
 		<div class="left_bar" id="left_bar">
 			<p>Select which Y piece to add:</p>
 			<div class="drag_box" id="small_drag" onclick="toggleYPiece(this)">
@@ -41,12 +43,13 @@
 			<p class="app">Build your own Splyt Light</p>
 		</div>
 	</div>
-
+	<!--viewer.js needs app div loaded -->
+	<script type="text/javascript"  src="js/viewer.js"></script>
 	<div class="mobileDevice">
 		<p>It appears you may be using a mobile device. Please view the Splyt 3D Editor on a desktop for best experience.</p>
-		<p>You can check out our Kickstart video until then.</p>
-		<video> <!-- width="600" height="334" controls -->
-				<source src="https://ksr-video.imgix.net/projects/2289070/video-650720-h264_high.mp4" type="video/mp4">
+		<p>Please check out our Kickstart video until then.</p>
+		<video>
+			<source src="https://ksr-video.imgix.net/projects/2289070/video-650720-h264_high.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 			</video>
 	</div>
@@ -56,7 +59,5 @@
 	<a href="hello@splytlight.com">hello@splytlight.com<a>
 </footer>
 
-<!--viewer.js needs app div loaded -->
-<script type="text/javascript"  src="js/viewer.js"></script>
 </body>
 </html>

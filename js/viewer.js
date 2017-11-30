@@ -1,20 +1,5 @@
 // This is the assembled Scene put into the Canvas element
 
-/* Check if WebGL */
-
-// function initGL(canvas) {
-//     try {
-//         gl = canvas.getContext("webgl",{preserveDrawingBuffer: true});
-//         gl.viewportWidth = canvas.width;
-//         gl.viewportHeight = canvas.height;
-//         console.log("Trying....");
-//     } catch (e) {
-//     }
-//     if (!gl) {
-//         alert("Could not initialise WebGL");
-//     }
-// }
-// onload="initGL();" goes in body tag
 
 /* Environment */
 
@@ -80,12 +65,17 @@
 
 
 // DOM stuff
+
   var container = document.getElementById( 'canvas' );
-  container.appendChild( renderer.domElement );
-  document.body.appendChild( container );
+
+  if ($(window).width() > 700) {
+        container.appendChild( renderer.domElement );
+        document.body.appendChild( container );
+  }
+
+
 
 // Update
-
 
 // when the mouse moves, call the given function
 // document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -102,10 +92,11 @@ function onDocumentMouseMove(event) {
 }
 
 function onWindowResize(){
+
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth * .75, window.innerHeight * .75);
-
+    render();
 }
 
 // Three.js Rendering
@@ -114,6 +105,10 @@ function update() {
   onWindowResize();
 }
 
+function render() {
+    renderer.render( scene, camera );
+    differentWidths()
+  }
 
 (function animate() {
     requestAnimationFrame( animate );
@@ -122,10 +117,6 @@ function update() {
     render();
     // log(mouse.x, mouse.y);
 })
-();
 
-function render() {
-    renderer.render( scene, camera );
-  }
 
 
