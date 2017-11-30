@@ -49,7 +49,7 @@
   scene.add( oneSplyt );
   // scene.add( fullTree );
   scene.add( base );
-  scene.add( axisHelper );
+  // scene.add( axisHelper );
 
   camera.position.y = 150;
   camera.position.z = 300;
@@ -70,9 +70,8 @@
 
   if ($(window).width() > 700) {
         container.appendChild( renderer.domElement );
-        document.body.appendChild( container );
+        container.appendChild( container );
   }
-
 
 
 // Update
@@ -83,7 +82,6 @@ window.addEventListener( 'resize', onWindowResize, false );
 
 
 // Browser Functions
-
 
 function onDocumentMouseMove(event) {
   // update the mouse variable

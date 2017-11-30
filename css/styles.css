@@ -70,7 +70,7 @@ small, .font_small {font-size: 0.833em;}
 /*App Layout*/
 
 #content{
-	display: block;
+	/*display: block;*/
 	height: calc(100% + 100px);
 	padding-bottom:60px;
 	position: relative;
@@ -92,9 +92,9 @@ small, .font_small {font-size: 0.833em;}
 	background-color: white;
 	margin: auto;
 	float: right;
-	position: relative;
+	/*position: relative;*/
 	border: 2px;
-	display: inline-block;
+/*	display: inline-block;*/
 }
 
 /*Left Bar Drag Items*/
@@ -157,6 +157,9 @@ canvas{
 	margin: 0 auto;
 	text-align: center;
 }
+.app{
+	display: block;
+	}
 
 .mobileDevice{
 	display: none;
