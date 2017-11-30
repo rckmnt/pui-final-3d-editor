@@ -25,30 +25,33 @@
 	<h1>Splyt Light - 3D Editor</h1>
 	<p>Build your own Splyt light</p>
 </header>
-
 	<div id="content">
+		<!-- Left -->
 		<div class="left_bar" id="left_bar">
 			<p>Select which Y piece to add:</p>
 			<div class="drag_box" id="small_drag" onclick="toggleYPiece(this)">
 				<h4>Small Y</h4>
-                <img class="drag_box" src="imgs/small_Y.png">
+	            <img class="drag_box" src="imgs/small_Y.png">
 			</div>
 			<div class="drag_box" id="large_drag" onclick="toggleYPiece(this)">
 				<h4>Large Y</h4>
-                <img class="drag_box" src="imgs/large_Y.png">
+	            <img class="drag_box" src="imgs/large_Y.png">
 			</div>
 		</div>
+
+		<!-- Right -->
 		<div class="app" id="canvas">
-			<!-- Render ThreeJS app into a canvas tag here -->
 			<p class="app">Build your own Splyt Light</p>
+			<!-- Viewer.js needs app div loaded -->
 		</div>
+		<!-- Renders 3D into a canvas tag here -->
+		<script type="text/javascript"  src="js/viewer.js"></script>
 	</div>
-	<!--viewer.js needs app div loaded -->
-	<script type="text/javascript"  src="js/viewer.js"></script>
+
 	<div class="mobileDevice">
 		<p>It appears you may be using a mobile device. Please view the Splyt 3D Editor on a desktop for best experience.</p>
 		<p>Please check out our Kickstart video until then.</p>
-		<video>
+		<video  controls>
 			<source src="https://ksr-video.imgix.net/projects/2289070/video-650720-h264_high.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 			</video>

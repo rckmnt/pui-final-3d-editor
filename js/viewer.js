@@ -92,11 +92,12 @@ function onDocumentMouseMove(event) {
 }
 
 function onWindowResize(){
-
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth * .75, window.innerHeight * .75);
-    render();
+    if ($(window).width() > 700) {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth * .75, window.innerHeight * .75);
+      render();
+    }
 }
 
 // Three.js Rendering

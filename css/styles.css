@@ -71,9 +71,9 @@ small, .font_small {font-size: 0.833em;}
 
 #content{
 	display: block;
-	max-height: 800px;
-	/*padding-bottom:60px;*/
-	/*position: relative;*/
+	height: calc(100% + 100px);
+	padding-bottom:60px;
+	position: relative;
 }
 
 #left_bar{
@@ -94,8 +94,7 @@ small, .font_small {font-size: 0.833em;}
 	float: right;
 	position: relative;
 	border: 2px;
-	display: block;
-	/*display: inline-flex;*/
+	display: inline-block;
 }
 
 /*Left Bar Drag Items*/
@@ -144,12 +143,13 @@ small, .font_small {font-size: 0.833em;}
 
 
 /*Viewer Canvas*/
+
 canvas{
 	margin: auto;
 	width:100%;
 	height:100%;
 	position: relative;
-	/*display: block;*/
+	display: block;
 	/*z-index:-1;*/
 }
 
@@ -158,9 +158,12 @@ canvas{
 	text-align: center;
 }
 
-.app{
-	/*display: block;*/
+.mobileDevice{
+	display: none;
 }
+
+
+/*Mobile and Tablet sizing */
 
 
 @media screen and (max-width: 700px){
@@ -175,6 +178,8 @@ canvas{
 
 	.mobileDevice{
 		display: block;
+		margin: 0 auto;
+		width: 80%;
 	}
 
 	/* Hide App content */
